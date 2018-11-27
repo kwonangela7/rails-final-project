@@ -17,12 +17,19 @@ class PlaylistController < ActionController::Base
 		# @playlist.seed_artists = [@a_id]
 		# @playlist.seed_genres = [@playlist[:genre]] 
 	
-		@max_acousticness = params[:acousticness] # form submission format might be different
-		@max_danceability = params[:danceability]
-		@max_energy = params[:energy]
-		@max_instrumentalness = params[:instrumentalness]
-		@max_liveness = params[:liveness]
-		@max_loudness = params[:loudness]
+		# @max_acousticness = params[:acousticness] # form submission format might be different
+		# @max_danceability = params[:danceability]
+		# @max_energy = params[:energy]
+		# @max_instrumentalness = params[:instrumentalness]
+		# @max_liveness = params[:liveness]
+		# @max_loudness = params[:loudness]
+
+		@max_acousticness = 0.5 # form submission format might be different
+		@max_danceability = 0.5 
+		@max_energy = 0.5
+		@max_instrumentalness = 0.7
+		@max_liveness = 0.2
+		#@max_loudness = params[:loudness] # Values typical range between -60 and 0 db.
 
 
 	end
@@ -33,7 +40,8 @@ class PlaylistController < ActionController::Base
 	# end
 
 	def generate
-		recommendations = RSpotify::Recommendations.generate(max_acousticness: @max_acousticness, max_danceability: @max_danceability, max_energy: @max_energy, max_instrumentalness: @max_instrumentalness, max_liveness: @max_liveness, target_loudness: @max_loudness) 
-		recommendations.tracks # find out how to display this
+		recommendations = RSpotify::Recommendations.generate(seed_artists: ['4NHQUGzhtTLFvgF5SZesLK'], seed_tracks: ['0c6xIDDpzE81m2q797ordA'])#, max_acousticness: @max_acousticness, max_danceability: @max_danceability, max_energy: @max_energy, max_instrumentalness: @max_instrumentalness, max_liveness: @max_liveness) #target_loudness: @max_loudness) 
+		@recs = recommendations
+		@tracks = recommendations.tracks.present? # find out how to display this
 	end
 end
