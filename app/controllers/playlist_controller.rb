@@ -2,11 +2,9 @@ class PlaylistController < ActionController::Base
 
 
 	def parse
-		@playlist = Playlist.create(user_params) 
 
-
+		# commented out since we're not using seeds in our recommender, just attributes.
 		# Assuming the user typed in the name/selected a seed track (input: name), limited to one as of now
-
 		# @track = RSpotify::Base.search(@playlist[:track], 'track', limit: 1) # using song keywords to get song id
 		# @t_id = @track.first.id # since the call above returns an array of (presumably) 1 track artist
 
@@ -17,20 +15,25 @@ class PlaylistController < ActionController::Base
 		# try to valiate that id's are strings, though they naturally should be
 		# @playlist.seed_tracks = [@t_id] 
 		# @playlist.seed_artists = [@a_id]
-		# @playlist.seed_genres = [@playlist[:genre]] #@R - easiest way to do this would be a drop down, so I'm going to assume drop down	
+		# @playlist.seed_genres = [@playlist[:genre]] 
 	
-		# acousticness, danceability (min and max), energy, instrumentalness, liveliness, loudness
+		@max_acousticness = params[:acousticness] # form submission format might be different
+		@max_danceability = params[:danceability]
+		@max_energy = params[:energy]
+		@max_instrumentalness = params[:instrumentalness]
+		@max_liveness = params[:liveness]
+		@max_loudness = params[:loudness]
+
 
 	end
 
-	def user_params
-		#params.require(:preference).permit(:, :ndex) # should require certain form responses?
-		#more so R's thing
-	end
+	# def user_params
+	# 	#params.require(:preference).permit(:, :ndex) # should require certain form responses?
+	# 	#more so R's thing
+	# end
 
 	def generate
-		recommendations = RSpotify::Recommendations.generate(max_acousticness:, max_danceability:, max_energy:, max_instrumentalness:, target_loudness:) 
-)
-		#recommendations = RSpotify::Recommendations.generate(seed_tracks: @playlist.seed_tracks, seed_genres: @playlist.seed_genres, seed_artists: @playlist.seed_artists) #target_energy: 1.0)
+		recommendations = RSpotify::Recommendations.generate(max_acousticness: @max_acousticness, max_danceability: @max_danceability, max_energy: @max_energy, max_instrumentalness: @max_instrumentalness, max_liveness: @max_liveness, target_loudness: @max_loudness) 
+		recommendations.tracks # find out how to display this
 	end
 end
