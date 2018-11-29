@@ -4,5 +4,6 @@ Rails.application.routes.draw do
  	# post '/generate', to: 'playlist#generate', as: 'generate'
  	# patch '/parse', to: 'playlist#parse', as: 'parse'
   root to: "home#index"
-  get "/auth/spotify/callback", to: "users#spotify"
+  #get "/auth/spotify/callback", to: "users#spotify"
+  get "/auth/spotify/callback", to: "playlist#generate"
 end
