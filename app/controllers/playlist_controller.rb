@@ -29,14 +29,12 @@ class PlaylistController < ActionController::Base
 		# @max_energy = params[:energy]
 		# @max_instrumentalness = params[:instrumentalness]
 		# @max_liveness = params[:liveness]
-		# @max_loudness = params[:loudness]
 
 		@max_acousticness = 0.5 # form submission format might be different
 		@max_danceability = 0.5
 		@max_energy = 0.5
 		@max_instrumentalness = 0.7
 		@max_liveness = 0.2
-		#@max_loudness = params[:loudness] # Values typical range between -60 and 0 db.
 
 
 	end
