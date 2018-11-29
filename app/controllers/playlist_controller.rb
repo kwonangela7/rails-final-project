@@ -28,7 +28,7 @@ class PlaylistController < ActionController::Base
 		# @max_instrumentalness = params[:instrumentalness]
 		# @max_liveness = params[:liveness]
 
-		@max_acousticness = 0.5 # form submission format might be different
+		@max_acousticness = 0.5
 		@max_danceability = 0.5 
 		@max_energy = 0.5
 		@max_instrumentalness = 0.7
