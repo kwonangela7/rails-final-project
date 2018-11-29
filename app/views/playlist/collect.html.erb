@@ -132,7 +132,7 @@
   </p>
   <div id="loudnessSlider"></div>
 
-<div><%= button_to "Generate my playlist", "/auth/spotify/callback", :class => "button large", :method => :get %></div>
+<div><%= button_to "Generate my playlist", generate_path(), :class => "button large", :method => :patch %></div>
 </body>
 
 <!-- <%= form_for :playlist do |f| %>

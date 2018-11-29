@@ -4,5 +4,4 @@
   <p><%= playlist.name %></p>
 <% end %>
 
-<td><%= link_to 'Playlist', generate_path(@spotify_user) %></td>
 <div><%= button_to "Generate preference based playlist!", form_path(), :class => "button medium", :method => :get %></div>

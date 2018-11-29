@@ -6,10 +6,6 @@ Rails.application.routes.draw do
   root to: "home#index"
   get "/auth/spotify/callback", to: "users#spotify", as: 'spotify'
   
-
-
-  get "/auth/spotify/callback", to: "playlist#generate"
-
   get "/form", to: "playlist#collect", as: 'form'
 
   patch "/generate", to: "playlist#generate", as: 'generate'
