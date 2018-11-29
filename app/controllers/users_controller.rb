@@ -3,10 +3,10 @@ class UsersController < ApplicationController
     @spotify_user = RSpotify::User.new(request.env['omniauth.auth'])
     @hash = @spotify_user.to_hash
 
-    puts "USER#SPOTIFY HASH IS #{@hash}"
+    #puts "USER#SPOTIFY HASH IS #{@hash}"
 
     @country = @spotify_user.country #=> "US"
-    puts "COUNTRY: #{@country}"
+    #puts "COUNTRY: #{@country}"
     @email = @spotify_user.email   #=> "example@email.com"
 
     @user = User.create(token: @hash, email: @email)
