@@ -1,24 +1,44 @@
-# README
+Title: Rails Decal Project!!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Team Members:** Angela Kwon, Matt Jeng, Rebecca Chuang
 
-Things you may want to cover:
+**Prompt:** Media Me Crazy
 
-* Ruby version
+## **Abstract**
 
-* System dependencies
+Our application allows users to enter in a preferred artist and track, and attributes (such as energy and danceability). These preferences generate a personalized playlist based off of their responses, which is added directly to their spotify account (and can be played from the spotify app or web player). Any 
 
-* Configuration
+## **Models:**
 
-* Database creation
+**User**
 
-* Database initialization
+- has hash and email
 
-* How to run the test suite
+**Preferences**
 
-* Services (job queues, cache servers, search engines, etc.)
+- has artist, track, and 5 attributes - acousticness, danceability, energy, instrumentalness, and liveness 
+- belongs to a User
 
-* Deployment instructions
+**Playlist**
 
-* ...
+- has songs
+- belongs to a User
+
+**Song**
+
+- has song id
+- belongs to a Playlist
+
+## **Features:**
+
+- Users can log in
+- Users can view their playlists
+- Users can enter their preferences for a personalized playlist
+- Personalized playlists based off of a user's responses are generated
+- Users can view songs on this playlist
+
+## **Division of Labor:**
+
+- Angela: playlist generation
+- Matt: did everything authentication 
+- Rebecca: created preferences form 
