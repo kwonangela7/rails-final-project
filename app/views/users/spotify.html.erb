@@ -1,0 +1,8 @@
+<%= @hash %>
+<%= @country %>
+<%= @email %>
+<% @playlists.each do |playlist| %>
+  <p><%= playlist.name %></p>
+<% end %>
+
+<div><%= button_to "Generate preference based playlist!", form_path(@hash), :class => "button medium", :method => :get %></div>

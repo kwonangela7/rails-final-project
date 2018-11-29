@@ -15,5 +15,8 @@ module RailsFinalProject
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+    RSpotify::authenticate("653d683e045c485d87c4e29b97e0f98b", "c6d68306e24f4b71adf9c88b1374727a")
+
   end
 end
