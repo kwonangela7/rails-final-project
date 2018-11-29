@@ -4,10 +4,11 @@ Rails.application.routes.draw do
  	# post '/generate', to: 'playlist#generate', as: 'generate'
  	# patch '/parse', to: 'playlist#parse', as: 'parse'
   root to: "home#index"
-  get "/auth/spotify/callback", to: "users#spotify"
+  get "/auth/spotify/callback", to: "users#spotify", as: 'spotify'
   get "/form", to: "playlist#collect", as: 'form'
 
   patch "/generate", to: "playlist#generate", as: 'generate'
+  get "/auth/spotify/callback", to: "playlist#generate"
 
   # going to do the call back to generate so that i can easily use the authentication
 end

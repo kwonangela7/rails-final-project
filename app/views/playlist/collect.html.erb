@@ -86,6 +86,11 @@
   var liveness = document.getElementById("livenessSlider").value;
   var loudness = document.getElementById("loudnessSlider").value;
 
+    $.ajax({
+      url: "/generate",
+      type: "patch",
+      data: {acousticness: acousticness, danceability: danceability, energy: energy, instrumentalness: instrumentalness, liveness: liveness, loudness: loudness}
+    })
   </script>
 </head>
 
@@ -127,16 +132,17 @@
   </p>
   <div id="loudnessSlider"></div>
 
+<div><%= button_to "Generate my playlist", "/auth/spotify/callback", :class => "button large", :method => :get %></div>
 </body>
 
-<%= form_for :playlist do |f| %>
+<!-- <%= form_for :playlist do |f| %>
   <%= f.hidden_field :acousticness %>
   <%= f.hidden_field :danceability %>
   <%= f.hidden_field :energy %>
   <%= f.hidden_field :instrumentalness %>
   <%= f.hidden_field :liveness %>
-<% end %>
+<% end %> -->
 
-<div><%= button_to "Generate my playlist", generate_path(@spotify_user), :class => "button large", :method => :patch %></div>
+
 
 

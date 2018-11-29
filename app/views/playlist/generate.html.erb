@@ -1,3 +1,7 @@
 <!-- display songs of the most recently made playlist-->
-<!-- include a button for going back to the playlist view -->
+<% @new_playlists.tracks do |track| %>
+  <p><%= track.name %></p>
+<% end %>
+
+<div><%= button_to "View Playlists", spotify_path(), :class => "button medium", :method => :get %></div>
 
