@@ -1,4 +1,4 @@
-**Title:** Rails Decal Project!!
+**Title:** Rails Decal Final Project
 
 **Team Members:** Angela Kwon, Matt Jeng, Rebecca Chuang
 
