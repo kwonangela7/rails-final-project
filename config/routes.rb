@@ -5,8 +5,8 @@ Rails.application.routes.draw do
  	# patch '/parse', to: 'playlist#parse', as: 'parse'
   root to: "home#index"
   get "/auth/spotify/callback", to: "users#spotify", as: 'spotify'
-  
+
   get "/form", to: "playlist#collect", as: 'form'
 
-  patch "/generate", to: "playlist#generate", as: 'generate'
-  end
+  get "/generate", to: "playlist#generate", as: 'generate'
+end

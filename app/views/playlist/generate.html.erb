@@ -1,7 +1,6 @@
 <!-- display songs of the most recently made playlist-->
-<% @new_playlist.tracks do |track| %>
+<% @new_playlist.tracks.each do |track| %>
   <p><%= track.name %></p>
 <% end %>
 
-<div><%= button_to "View My Playlists", spotify_path(), :class => "button medium", :method => :get %></div>
-
+<div><%= button_to "View Playlists", spotify_path(), :class => "button medium", :method => :get %></div>

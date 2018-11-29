@@ -2,12 +2,16 @@ class UsersController < ApplicationController
   def spotify
     @spotify_user = RSpotify::User.new(request.env['omniauth.auth'])
     @hash = @spotify_user.to_hash
+
+    puts "USER#SPOTIFY HASH IS #{@hash}"
+
     @country = @spotify_user.country #=> "US"
     puts "COUNTRY: #{@country}"
     @email = @spotify_user.email   #=> "example@email.com"
 
     @user = User.create(token: @hash, email: @email)
     @playlists = @spotify_user.playlists(limit: 5)
+
 
 
     @seeds = {track: "Delicate", artist: "Taylor Swift", genre: "rock"}
@@ -32,6 +36,7 @@ class UsersController < ApplicationController
     #puts "PLAYLIST: #{playlist}"
     @new_playlist.add_tracks!(recommendations.tracks)
     
+
     # playlist = spotify_user.create_playlist!('zzzzzzzzzzzzzzzzzzzzzz')
     # puts "PLAYLIST: #{playlist}"
     # # Add tracks to a playlist in user's Spotify account

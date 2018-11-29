@@ -88,8 +88,8 @@
 
     $.ajax({
       url: "/generate",
-      type: "patch",
-      data: {acousticness: acousticness, danceability: danceability, energy: energy, instrumentalness: instrumentalness, liveness: liveness}
+      type: "get",
+      data: {"acousticness": acousticness, "danceability": danceability, "energy": energy, "instrumentalness": instrumentalness, "liveness": liveness, "loudness": loudness, "hash": "something"}
     })
   </script>
 </head>
@@ -132,10 +132,5 @@
   </p>
   <div id="loudnessSlider"></div>
 
-<div><%= button_to "Generate my playlist", generate_path(@hash), :class => "button large", :method => :patch %></div>
+<div><%= button_to "Generate my playlist", generate_path(), :class => "button large", :method => :get, :params => {"hash": @hash} %></div>
 </body>
-
-
-
-
-
