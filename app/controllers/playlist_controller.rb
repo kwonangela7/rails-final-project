@@ -41,13 +41,8 @@ class PlaylistController < ActionController::Base
 
 
 	def generate
-		@spotify_user = RSpotify::User.new(hash)
-    
-	    # Access private data
-	    # @country = spotify_user.country
-	    # puts "COUNTRY: #{@country}"
-	    # @email = spotify_user.email  
-
+		@spotify_user = RSpotify::User.new(@hash)
+   
 	    @seeds = {track: "Delicate", artist: "Taylor Swift", genre: "rock"}
 		@track = RSpotify::Base.search(@seeds[:track], 'track', limit: 1) # using song keywords to get song id
 		@t_id = @track.first.id # since the call above returns an array of (presumably) 1 track artist
