@@ -67,29 +67,29 @@
     });
     $( "#livenessAmount" ).val( $( "#livenessSlider" ).slider( "value" ) );
     // loudness attribute
-    $( "#loudnessSlider" ).slider({
-      value:0.7,
-      min: 0,
-      max: 1,
-      step: 0.01,
-      slide: function( event, ui ) {
-        $( "#loudnessAmount" ).val( ui.value );
-      },
-      animate: "slow"
-    });
-    $( "#loudnessAmount" ).val( $( "#loudnessSlider" ).slider( "value" ) );
-  } );
+  //   $( "#loudnessSlider" ).slider({
+  //     value:0.7,
+  //     min: 0,
+  //     max: 1,
+  //     step: 0.01,
+  //     slide: function( event, ui ) {
+  //       $( "#loudnessAmount" ).val( ui.value );
+  //     },
+  //     animate: "slow"
+  //   });
+  //   $( "#loudnessAmount" ).val( $( "#loudnessSlider" ).slider( "value" ) );
+  // } );
   var acousticness = document.getElementById("acousticnessSlider").value;
   var danceability = document.getElementById("danceabilitySlider").value;
   var energy = document.getElementById("energySlider").value;
   var instrumentalness = document.getElementById("instrumentalnessSlider").value;
   var liveness = document.getElementById("livenessSlider").value;
-  var loudness = document.getElementById("loudnessSlider").value;
+  // var loudness = document.getElementById("loudnessSlider").value;
 
     $.ajax({
       url: "/generate",
       type: "patch",
-      data: {acousticness: acousticness, danceability: danceability, energy: energy, instrumentalness: instrumentalness, liveness: liveness, loudness: loudness}
+      data: {acousticness: acousticness, danceability: danceability, energy: energy, instrumentalness: instrumentalness, liveness: liveness}
     })
   </script>
 </head>
@@ -126,11 +126,11 @@
   </p>
   <div id="livenessSlider"></div>
 
-  <p>
+<!--   <p>
     <label for="loudnessAmount"> loudness preference level (0.01 increments):</label>
     <input type="text" id="loudnessAmount" readonly style="border:0; color:#0fc659; font-weight:bold;">
   </p>
-  <div id="loudnessSlider"></div>
+  <div id="loudnessSlider"></div> -->
 
 <div><%= button_to "Generate my playlist", generate_path(), :class => "button large", :method => :patch %></div>
 </body>
