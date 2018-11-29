@@ -41,7 +41,7 @@ class PlaylistController < ActionController::Base
 
 
 	def generate
-		spotify_user = params[:spotify_user]
+		@spotify_user = RSpotify::User.new(hash)
     
 	    # Access private data
 	    # @country = spotify_user.country
@@ -56,8 +56,6 @@ class PlaylistController < ActionController::Base
 		@artist = RSpotify::Base.search(@seeds[:artist], 'artist', limit: 1)
 		@a_id = @artist.first.id
 
-		#try to valiate that id's are strings, though they naturally should be
-
 	    @max_acousticness = 1.0 # form submission format might be different
 	    @max_danceability = 1.0
 	    @max_energy = 1.0
@@ -70,7 +68,6 @@ class PlaylistController < ActionController::Base
 
 	    @new_playlist = @spotify_user.create_playlist!('Recommendations 1')
 	    #puts "PLAYLIST: #{playlist}"
-	    #puts @a_id
 	    @new_playlist.add_tracks!(recommendations.tracks)
 
 	end
