@@ -3,3 +3,5 @@
 <% @playlists.each do |playlist| %>
   <p><%= playlist.name %></p>
 <% end %>
+
+<div><%= button_to "Generate preference based playlist!", form_path(), :class => "button medium", :method => :get %></div>
