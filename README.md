@@ -1,4 +1,4 @@
-Title: Rails Decal Project!!
+**Title:** Rails Decal Project!!
 
 **Team Members:** Angela Kwon, Matt Jeng, Rebecca Chuang
 
@@ -6,13 +6,13 @@ Title: Rails Decal Project!!
 
 ## **Abstract**
 
-Our application allows users to enter in a preferred artist and track, and attributes (such as energy and danceability). These preferences generate a personalized playlist based off of their responses, which is added directly to their spotify account (and can be played from the spotify app or web player). Any 
+Our application allows users to enter in a preferred artist and track, and attributes (such as energy and danceability). These preferences generate a personalized playlist based off of their responses, which is added directly to their spotify account (and can be played from the spotify app or web player). Users can also view their playlists.
 
 ## **Models:**
 
 **User**
 
-- has hash and email
+- has hash (called token, since hash is a reserved word in Rails) and email
 
 **Preferences**
 
